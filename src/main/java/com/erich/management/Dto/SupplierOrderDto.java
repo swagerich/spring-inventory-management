@@ -17,7 +17,6 @@ public class SupplierOrderDto {
     private String code;
 
     private Instant dateOrder;
-
     private OrdeStatus ordeStatus;
 
     private Long idEntreprise;

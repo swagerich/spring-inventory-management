@@ -12,9 +12,28 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: false
+        format_sql: true
+       # session_factory:
+        #  interceptor: com.erich.management.Interceptor.Interceptors
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     database: postgresql
 
   #Swagger
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-inventory.html
+
+
+  #Flickr
+flickr:
+    apiKey: 1c16bd712e8e6b04c96fc2ce7d19a338
+    apiSecret: 72ab6de91a2f8082
+    appKey: 72157720868563315-be0d034bde142ed4
+    appSecret: 7c8af1e8d1d2d94b
+
+  #JWT
+app:
+  secret:
+    key: developeando-erich-2023
+  expiration: 36000000

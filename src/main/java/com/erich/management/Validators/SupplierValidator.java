@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SupplierValidator {
 
-    public List<String> validator(SupplierDto supplierDto) {
+    public static List<String> validator(SupplierDto supplierDto) {
 
         List<String> errors = new ArrayList<>();
 

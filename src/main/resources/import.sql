@@ -1,0 +1,5 @@
+INSERT INTO username(creation_date,last_modified_date,name,address_1,address_2,city,code_postal,country,date_of_birth,email,last_name,password,photo,id_empresa) VALUES ('2022-03-04 23:30:55','2022-03-04 23:31:20','erich',null,null,null,null,null,null,'erich@gmail.com',null,'$2a$10$k29ZC8YToUVyxAXlklw3XuSPRYijegyf0RAu/ipTjrOB5iYjaENgO',null,null);
+INSERT INTO username(creation_date,last_modified_date,name,address_1,address_2,city,code_postal,country,date_of_birth,email,last_name,password,photo,id_empresa) VALUES ('2022-03-04 23:30:55','2022-03-04 23:31:20','jose',null,null,null,null,null,null,'martines@gmail.com',null,'$2a$10$k29ZC8YToUVyxAXlklw3XuSPRYijegyf0RAu/ipTjrOB5iYjaENgO',null,null);
+
+INSERT INTO roles(user_id,authority) VALUES (1,'ROLE_ADMIN');
+INSERT INTO roles(user_id,authority) VALUES (2,'ROLE_USER');

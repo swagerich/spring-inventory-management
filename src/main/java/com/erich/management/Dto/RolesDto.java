@@ -11,17 +11,17 @@ public class RolesDto {
 
     private Long id;
 
-    private String rolesName;
+    private String authority;
 
-    @JsonIgnore
-    private UserDto user;
+    /*@JsonIgnore
+    private UserDto user;*/
 
     public static RolesDto fromEntity(Roles roles) {
         if (roles == null) {
             return null;
         }
         return RolesDto.builder().id(roles.getId())
-                .rolesName(roles.getRolesName()).build();
+                .authority(roles.getAuthority()).build();
     }
 
     public static Roles toEntity(RolesDto rolesDto) {
@@ -29,7 +29,8 @@ public class RolesDto {
             return null;
         }
         return Roles.builder().id(rolesDto.getId())
-                .rolesName(rolesDto.getRolesName())
-                .user(UserDto.toEntity(rolesDto.getUser())).build();
+                .authority(rolesDto.getAuthority()).build();
+                //.user(UserDto.toEntity(rolesDto.getUser())).build();
+                //.authority(rolesDto.getAuthority()).build();
     }
 }

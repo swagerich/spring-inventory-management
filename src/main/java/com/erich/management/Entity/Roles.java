@@ -1,25 +1,28 @@
 package com.erich.management.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@SuperBuilder
+//@SuperBuilder
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "roles")
-public class Roles extends  AbstractEntity{
+@Table(name = "roles", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "authority"})})
+public class Roles {
 
-    @JoinColumn(name = "roles_name")
-    private String rolesName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @ManyToOne
+    @JoinColumn(name = "authority")
+    private String authority;
+
+   /* @ManyToOne
     @JoinColumn(name = "id_username")
-    private User user;
+    private User user;*/
+    //private String authority;
 }

@@ -22,17 +22,15 @@ import java.time.Instant;
 public abstract class AbstractEntity implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @CreatedDate
-    @Column(name = "creation_date",nullable = false)
-    @JsonIgnore
+    @Column(name = "creation_date",nullable = false,updatable = false)
     private Instant creationDate;
 
     @LastModifiedDate
     @Column(name = "last_modified_date")
-    @JsonIgnore
     private Instant lastModifiedDate;
 
 }

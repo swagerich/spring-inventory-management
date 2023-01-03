@@ -1,5 +1,6 @@
 package com.erich.management.Controller;
 
+import com.erich.management.Controller.Api.ArticleApi;
 import com.erich.management.Dto.ArticleDto;
 import com.erich.management.Services.Impl.ArticleServiceImpl;
 
@@ -13,35 +14,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.erich.management.Utils.Constants.Path.APP_ROOT;
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1")
-public class ArticleController {
+public class ArticleController implements ArticleApi {
 
     private final ArticleServiceImpl articleService;
 
-    @GetMapping(value = "/articles/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Override
     public List<ArticleDto> listArticles() {
         return articleService.findAll();
     }
-
-    @PostMapping(value = "/articles/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @Override
     public ResponseEntity<?> save(@RequestBody ArticleDto articleDto) {
         return new ResponseEntity<>(articleService.save(articleDto), HttpStatus.CREATED);
     }
-
-    @GetMapping(value = "/articles/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Override
     public ResponseEntity<?> search(@PathVariable Long id) {
         return new ResponseEntity<>(articleService.findById(id), HttpStatus.OK);
     }
-
-    @GetMapping(value = "/articles/filter/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @Override
     public ResponseEntity<?> findCodeArticle(@PathVariable String id) {
         return new ResponseEntity<>(articleService.findByCodeArticle(id), HttpStatus.OK);
     }
-
-    @DeleteMapping(value = "/article/delete/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public void delete(@PathVariable Long id){
+    @Override
+    public void delete(@PathVariable Long id) {
         articleService.delete(id);
     }
 }

@@ -38,7 +38,8 @@ public class User  extends AbstractEntity{
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy="user")
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id")
     @JsonIgnore
     private List<Roles> roles;
 }
