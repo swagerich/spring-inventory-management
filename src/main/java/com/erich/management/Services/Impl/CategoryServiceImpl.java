@@ -61,10 +61,10 @@ public class CategoryServiceImpl implements CategoryService {
         if(id == null){
             return;
         }
-        /*List<Article> articles = articleRepo.findAllByCategoryId(id);
+        List<Article> articles = articleRepo.findAllByCategoryId(id);
         if (!articles.isEmpty()) {
             throw new InvalidOperationException("No se puede eliminar esta categoria , esta en uso", ErrorCodes.CATEGORY_ALREADY_IN_USE);
-        }*/
+        }
         categoryRepo.deleteById(id);
     }
 }

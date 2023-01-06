@@ -30,7 +30,6 @@ public class RestExceptionHanlder extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(InvalidEntityException.class)
     public ResponseEntity<ErrorDto> invalidEntityException(InvalidEntityException exception) {
-
         final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
         final ErrorDto errorDto = ErrorDto.builder()
                 .httpCode(badRequest.value())

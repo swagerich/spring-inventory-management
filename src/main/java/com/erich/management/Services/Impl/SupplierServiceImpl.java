@@ -66,7 +66,7 @@ public class SupplierServiceImpl implements SupplierService {
         }
         List<ClientOrder> clientOrders = supplierOrderRepo.findAllBySupplierId(id);
         if (!clientOrders.isEmpty()) {
-            throw new InvalidOperationException("Cannot delete a vendor that already has orders", ErrorCodes.SUPPLIER_ORDER_ALREADY_IN_USE);
+            throw new InvalidOperationException("Cannot delete a supplier that already has orders", ErrorCodes.SUPPLIER_ORDER_ALREADY_IN_USE);
         }
         supplierRepo.deleteById(id);
     }

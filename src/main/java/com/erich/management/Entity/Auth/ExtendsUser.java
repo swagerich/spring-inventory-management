@@ -9,8 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 public class ExtendsUser  {
 
-    private  User user;
-    private Long idEnterpride;
+    private User user;
+    private Long idEnterprise;
     /*public ExtendsUser(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
     }*/

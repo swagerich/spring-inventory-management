@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface StockService {
 
-    BigDecimal stockRealArtice(Long idArticle);
+    BigDecimal stockRealArticle(Long idArticle);
 
     List<StockDto> mvtStockArticle(Long idArticle);
 

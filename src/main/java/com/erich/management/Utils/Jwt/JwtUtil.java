@@ -32,8 +32,7 @@ public class JwtUtil {
 
     public String extractIdEntreprise(String token) {
         final Claims claims = extractAllClaims(token);
-
-        return claims.get("idEntreprise", String.class);
+        return claims.get("idEnterprise", String.class);
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
@@ -64,7 +63,7 @@ public class JwtUtil {
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
-                //.claim("idEntreprise", userDetails.getIdEnterpride().toString())
+                //.claim("idEnterprise", userDetails.getIdEnterprise().toString())
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
 
      }

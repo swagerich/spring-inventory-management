@@ -22,7 +22,7 @@ public class SaleLineDto {
 
     private Long idEntreprise;
 
-    public static SaleLineDto fronEntity(SaleLine saleLine){
+    public static SaleLineDto fromEntity(SaleLine saleLine){
         if(saleLine == null){
             return null;
         }

@@ -24,7 +24,7 @@ public class StockServiceImpl implements StockService {
     private final ArticleService articleService;
 
     @Override
-    public BigDecimal stockRealArtice(Long idArticle) {
+    public BigDecimal stockRealArticle(Long idArticle) {
         if(idArticle == null){
             log.error("ID article is null");
             return BigDecimal.valueOf(-1);

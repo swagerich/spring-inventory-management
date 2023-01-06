@@ -38,8 +38,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors().disable().csrf().disable()
                 .authorizeHttpRequests().requestMatchers("/authenticate/**",
-                        "/enterprise/save/**",
-                        "/enterprise/save/**",
                         "/swagger-ui-inventory.html/**",
                         "/swagger-ui.html",
                         "/swagger-ui/**",

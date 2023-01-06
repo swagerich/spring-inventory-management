@@ -238,12 +238,15 @@ public class SupplierOrderServiceImpl implements SupplierOrderService {
 
     @Override
     public void delete(Long id) {
-        if (!supplierOrderRepo.existsById(id)) {
-            throw new EntityNotFoundException("No exist ID with supplier", ErrorCodes.SUPPLIER_NOT_FOUND);
-        } else {
-            supplierOrderRepo.deleteById(id);
+        if(id == null){
+            log.error("ID IS NULL");
+            return;
         }
-
+        List<SupplierOrderLine> orderLines = supplierOrderLineRepo.findAllBySupplierOrderId(id);
+        if (!orderLines.isEmpty()) {
+            throw new InvalidOperationException("Cannot delete an already used sales order", ErrorCodes.CLIENT_ORDER_ALREADY_IN_USE);
+        }
+            supplierOrderRepo.deleteById(id);
     }
 
     private Optional<SupplierOrderLine> findSupplierOrderLine(Long id) {
